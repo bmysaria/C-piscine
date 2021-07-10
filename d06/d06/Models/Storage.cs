@@ -15,11 +15,13 @@ namespace d06.Models
             ItemsInStorage = totalItemCount;
         }
 
-        public void TakeWares(int wares)
+        public void TakeWares(Customer customer)
         {
             while (Interlocked.Exchange(ref _locked, Locked) != Unlocked)
                 Thread.Sleep(1);
-            ItemsInStorage -= wares;
+            ItemsInStorage -= ItemsInStorage >= customer.ItemsInCart
+            ? customer.ItemsInCart
+            : ItemsInStorage;
             Interlocked.Exchange(ref _locked, Unlocked);
         }
     }

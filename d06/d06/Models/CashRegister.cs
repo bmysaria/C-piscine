@@ -38,9 +38,7 @@ namespace d06.Models
                 stopWatch.Start();
                 if (!QueuedCustomers.TryDequeue(out Customer customer))
                     continue;
-                _store.Storage.TakeWares(_store.Storage.ItemsInStorage >= customer.ItemsInCart
-                        ? customer.ItemsInCart
-                        : _store.Storage.ItemsInStorage);
+                _store.Storage.TakeWares(customer);
                 Thread.Sleep(TimePerCustomer + TimePerItem * customer.ItemsInCart);
                 FromStart += stopWatch.Elapsed;
                 Console.WriteLine($"{FromStart.Seconds}   {customer} served by {this}");
