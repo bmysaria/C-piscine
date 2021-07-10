@@ -7,10 +7,20 @@ namespace d06.Models
     {
         public int ItemsInStorage { get; set; }
         public bool IsEmpty => ItemsInStorage <= 0;
-
+        private const int Unlocked = 0;
+        private const int Locked = 1;
+        private int _locked = Unlocked;
         public Storage(int totalItemCount)
         {
             ItemsInStorage = totalItemCount;
+        }
+
+        public void TakeWares(int wares)
+        {
+            while (Interlocked.Exchange(ref _locked, Locked) != Unlocked)
+                Thread.Sleep(1);
+            ItemsInStorage -= wares;
+            Interlocked.Exchange(ref _locked, Unlocked);
         }
     }
 }

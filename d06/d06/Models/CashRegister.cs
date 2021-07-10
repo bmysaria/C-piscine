@@ -32,16 +32,20 @@ namespace d06.Models
 
         private void Process()
         {
-            QueuedCustomers.TryDequeue(out Customer customer);
-            Stopwatch stopWatch = new Stopwatch();
-            stopWatch.Start();
-            Thread.Sleep(TimePerCustomer + TimePerItem * customer.ItemsInCart);
-            _store.Storage.ItemsInStorage -= (_store.Storage.ItemsInStorage >= customer.ItemsInCart
-                 ? customer.ItemsInCart
-                 : _store.Storage.ItemsInStorage);
-             FromStart += stopWatch.Elapsed;
-             Console.WriteLine($"{FromStart.Seconds}{customer} served by {this}");
-             stopWatch.Stop();
+            while (_store.IsOpen)
+            {
+                Stopwatch stopWatch = new Stopwatch();
+                stopWatch.Start();
+                if (!QueuedCustomers.TryDequeue(out Customer customer))
+                    continue;
+                _store.Storage.TakeWares(_store.Storage.ItemsInStorage >= customer.ItemsInCart
+                        ? customer.ItemsInCart
+                        : _store.Storage.ItemsInStorage);
+                Thread.Sleep(TimePerCustomer + TimePerItem * customer.ItemsInCart);
+                FromStart += stopWatch.Elapsed;
+                Console.WriteLine($"{FromStart.Seconds}   {customer} served by {this}");
+                stopWatch.Stop();
+            }
         }
     }
 }
