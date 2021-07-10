@@ -13,7 +13,7 @@ namespace d06
 {
     class Program
     {
-        private const string JsonConfig = "/Users/bmysaria/Desktop/c_sharp_piscine/d06/d06/appsettings.json";
+        private const string JsonConfig = "/Users/bmysaria/Desktop/c_sharp_piscine/d06/appsettings.json";
         static void Main(string[] args)
         {
             const int registers = 4;
@@ -43,15 +43,14 @@ namespace d06
                Console.WriteLine($"{customer} in for {register}");
             });
             store.OpenRegisters();
-            int i = 1;
             while (store.IsOpen)
             {
+				customers++;
                 Thread.Sleep(TimeSpan.FromSeconds(5));
-                var customer = new Customer(10+i);
+                var customer = new Customer(customers);
                 customer.FillCart(cartCapacity);
                 Register register = customer.GetInLineByItems(store.Registers);
                 Console.WriteLine($"{customer} in for {register}");
-                i++;
             }
 
             foreach (Register register in store.Registers)

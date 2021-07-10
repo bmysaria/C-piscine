@@ -1,0 +1,17 @@
+{
+  "version": 2,
+  "dgSpecHash": "aC3oHRhkTSznQ4KpOZj6T7gadbmFOmmlKWJYfOJ044k6sXshw5Wxq/vg98jtnWcBofLk8iCPyLjlUEbeHnB+oA==",
+  "success": true,
+  "projectFilePath": "/Users/bmysaria/Desktop/c_sharp_piscine/d06/d06.csproj",
+  "expectedPackageFiles": [
+    "/Users/bmysaria/.nuget/packages/microsoft.extensions.configuration/5.0.0/microsoft.extensions.configuration.5.0.0.nupkg.sha512",
+    "/Users/bmysaria/.nuget/packages/microsoft.extensions.configuration.abstractions/5.0.0/microsoft.extensions.configuration.abstractions.5.0.0.nupkg.sha512",
+    "/Users/bmysaria/.nuget/packages/microsoft.extensions.configuration.fileextensions/3.1.11/microsoft.extensions.configuration.fileextensions.3.1.11.nupkg.sha512",
+    "/Users/bmysaria/.nuget/packages/microsoft.extensions.configuration.json/3.1.11/microsoft.extensions.configuration.json.3.1.11.nupkg.sha512",
+    "/Users/bmysaria/.nuget/packages/microsoft.extensions.fileproviders.abstractions/3.1.11/microsoft.extensions.fileproviders.abstractions.3.1.11.nupkg.sha512",
+    "/Users/bmysaria/.nuget/packages/microsoft.extensions.fileproviders.physical/3.1.11/microsoft.extensions.fileproviders.physical.3.1.11.nupkg.sha512",
+    "/Users/bmysaria/.nuget/packages/microsoft.extensions.filesystemglobbing/3.1.11/microsoft.extensions.filesystemglobbing.3.1.11.nupkg.sha512",
+    "/Users/bmysaria/.nuget/packages/microsoft.extensions.primitives/5.0.0/microsoft.extensions.primitives.5.0.0.nupkg.sha512"
+  ],
+  "logs": []
+}
