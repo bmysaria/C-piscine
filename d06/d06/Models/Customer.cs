@@ -1,0 +1,24 @@
+using System;
+using System.Collections.Generic;
+using d06.Extensions;
+using d06.Models;
+
+namespace d06.Models
+{
+    public class Customer
+    {
+        public int No { get; }
+        public int ItemsInCart { get;  set; }
+
+        public Customer(int number)
+        {
+            No = number;
+        }
+
+        public void FillCart(int cartCapacity)
+            => ItemsInCart = new Random().Next(1, cartCapacity);
+
+        public override string ToString()
+            => $"Customer#{No} ({ItemsInCart} items in cart)";
+    }
+}
