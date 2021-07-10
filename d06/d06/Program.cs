@@ -13,7 +13,7 @@ namespace d06
 {
     class Program
     {
-        private const string JsonConfig = "/Users/bmysaria/Desktop/d06/d06/appsettings.json";
+        private const string JsonConfig = "/Users/bmysaria/Desktop/c_sharp_piscine/d06/d06/appsettings.json";
         static void Main(string[] args)
         {
             const int registers = 4;
